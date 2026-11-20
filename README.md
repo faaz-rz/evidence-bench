@@ -1,23 +1,21 @@
 # Evidence Bench
 
-Evaluate the retrieval behind a document assistant and trace how a local research agent finds its evidence. Evidence Bench compares keyword, dense, and hybrid search on labelled questions, highlights query-level regressions, and exports rankings and traces for review.
+When a document assistant gives the wrong answer, the first question is whether it found the right source. Evidence Bench gives you a way to check. Run the same labelled questions through different search methods, open the cases that got worse, then follow a research agent from its first search to the exact passages it returns.
 
-[Live workspace](https://faaz-rz.github.io/evidence-bench/) · [Design and evaluation notes](docs/design.md)
+[Open the live demo](https://faaz-rz.github.io/evidence-bench/) · [Read the design notes](docs/design.md)
 
-![Evidence Bench compares nDCG, recall, and MRR](docs/benchmark.png)
+![Evidence Bench comparing BM25 and dense search, with scores for individual questions](docs/benchmark.png)
 
-[See the agent trace](docs/research.png)
+## Try two cases
 
-## Try it
+1. In **Benchmark**, leave the default comparison on BM25 versus Dense with **Top K** set to **3**. Select **Regressed** and open “What happens to collaboration if our card is declined?” BM25 ranks the expected billing document second. Dense search leaves it out of the top three, even though its average score is higher.
+2. Open **Research agent**, select **Replay an Ollama run**, and replay the outage question. The trace shows where the agent found the one-hour support response target and the thirty-minute incident update cadence. Expand a citation to see the quote in context. Replay the extra-storage pricing question to see the agent try another search and abstain.
 
-1. Open **Benchmark**. Compare Dense with BM25 at Top K = 3. The dense ranker makes 12 cases better and one worse on the bundled dataset.
-2. Open **Regressed** and inspect the declined-card question. Compare the source rankings and see why a policy document can rank poorly even when the aggregate score rises.
-3. Open **Research agent**. Replay a real Ollama run to inspect its evidence or abstention. Switch to **Browser evidence preview** to run interactive searches using the sample vectors or keyword search.
-4. In **Corpus**, export the sample workspace JSON, modify the documents and relevance labels, and import it to run your own benchmark.
+The hosted app computes benchmarks in your browser and replays three recorded model runs. **Browser evidence preview** also accepts new questions and ranks candidate excerpts by word overlap. To run new questions through the model itself, use the local setup below.
 
-## Run the local agent
+## Run the agent locally
 
-Requires Node.js 24+ and a local Ollama service. The provided embedding and chat models are configurable.
+Use Node.js 24 or later and a running [Ollama](https://ollama.com/) service.
 
 ```sh
 ollama pull nomic-embed-text
@@ -27,37 +25,40 @@ npm run build
 npm start
 ```
 
-Open http://127.0.0.1:4328 and choose **Local Ollama agent** on the Research page. Run an outage question to see the planner split it into queries, the retriever rank the source passages, and the verifier select exact excerpts. When support is missing, the agent can try one fallback search and abstain.
+Open [the local workspace](http://127.0.0.1:4328) and choose **Local Ollama agent** under **Research agent**. The model proposes search phrases and selects excerpt IDs from the passages the retriever found. The application checks those IDs and the quote offsets before displaying the original text. This guarantees that a quote came from the cited passage. Judging whether the quote fully answers the question still requires reviewing the evidence.
 
-The service binds to loopback. Workspace content is sent only to the local service during indexing and model-assisted research. The hosted workspace runs without a server, and imported workspaces live in browser memory for the session.
+To try your own documents, go to **Corpus**, export the sample workspace JSON, and use it as the template for your documents and expected sources. Import the edited file and select **Build semantic index** in the local app. The server listens on loopback, and imported workspaces are held in browser memory for the session.
 
-## Benchmark and regression gate
+## What the benchmark measures
 
-The bundled fictional handbook has 18 documents and 36 questions. Thirty questions have relevance labels. Six unsupported probes are listed separately and excluded from retrieval averages. All scores below are measured on this fixture and can be reproduced with the CLI.
+The bundled dataset contains 18 fictional handbook documents and 36 questions. Thirty questions have labelled sources and contribute to the averages. The six unsupported probes have no expected source and are tracked separately.
 
-| Pipeline | nDCG@3 | Recall@3 | MRR@3 |
+| Search method | nDCG@3 | Recall@3 | MRR@3 |
 | --- | ---: | ---: | ---: |
-| BM25 | 0.639 | 0.667 | 0.633 |
-| Dense | 0.930 | 0.967 | 0.917 |
-| Hybrid RRF | 0.843 | 0.933 | 0.811 |
+| BM25 keyword search | 0.639 | 0.667 | 0.633 |
+| Dense embedding search | 0.930 | 0.967 | 0.917 |
+| Hybrid via reciprocal rank fusion | 0.843 | 0.933 | 0.811 |
+
+On this fixture, dense search improves 12 questions, ties 17, and regresses on one against BM25. Recall measures how many expected sources made the cut. nDCG rewards finding them earlier, and MRR rewards a higher rank for the first relevant source. These are retrieval results on the sample handbook.
+
+Run the same comparison from the command line, export the rankings, and fail the run if it misses the configured thresholds.
 
 ```sh
+npm ci
 npm run benchmark -- --gate fixtures/gate.json --out run.json
-npm run benchmark -- --baseline bm25 --candidate hybrid --top-k 3
-npm run vectors
-npm run test:agent
 ```
 
-The JSON contains the corpus and case fingerprint, model digest, cutoffs, ranked matches, aggregate metrics, and per-question results. The gate exits with status 2 when a candidate misses its configured thresholds. `npm run vectors` rebuilds the sample index with your local embedding model. `npm run test:agent` exercises the planner and verifier with real Ollama inference. Add `-- --record` to regenerate the replay fixture after the checks pass.
+The export records the corpus fingerprint, embedding model digest, cutoff, and per-question results. [See the retrieval and agent design](docs/design.md) for the scoring and failure cases.
 
-For a custom lexical benchmark, pass `--workspace workspace.json --baseline term --candidate bm25`. Use exported JSON from the sample to see the accepted document and case schema.
-
-## Verify
+## Verification
 
 ```sh
 npm test
 npx playwright install chromium
 npm run test:browser
+npm run test:agent
 ```
 
-This is an AI-assisted portfolio project. The walkthrough describes what is measured and where the agent can fail.
+The agent smoke test requires the local Ollama models above. To regenerate the hosted recordings after it passes, use `npm run test:agent -- --record`.
+
+Built as an AI-assisted portfolio project.
