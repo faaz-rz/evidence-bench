@@ -1,0 +1,541 @@
+{
+  "name": "Morrow Workspace handbook",
+  "documents": [
+    {
+      "id": "billing",
+      "title": "Billing and invoicing",
+      "sections": [
+        {
+          "heading": "Invoices and receipts",
+          "text": "Monthly invoices are issued on the first UTC day of each billing period. Workspace owners can download signed receipts from Billing History. Invoices are payable in USD by card or bank transfer."
+        },
+        {
+          "heading": "Failed payments",
+          "text": "A failed renewal payment starts a seven-day grace period. The billing service retries on days two and five. At the end of the grace period, editors lose write access until the payment clears."
+        }
+      ]
+    },
+    {
+      "id": "refunds",
+      "title": "Refunds and credits",
+      "sections": [
+        {
+          "heading": "Annual subscription cancellations",
+          "text": "An annual subscription may be refunded within fourteen calendar days of the initial purchase. Renewals are excluded from this refund window. Finance normally processes an approved refund within five business days."
+        },
+        {
+          "heading": "Service credits",
+          "text": "Approved service credits appear on the next invoice as a line item. Credits cannot be exchanged for cash and do not change the workspace renewal date."
+        }
+      ]
+    },
+    {
+      "id": "export",
+      "title": "Customer data export",
+      "sections": [
+        {
+          "heading": "Portable workspace archive",
+          "text": "Workspace owners can request a data export from Data Controls. The archive contains task history and attachments in a ZIP file. A signed download link expires twenty-four hours after it is issued."
+        },
+        {
+          "heading": "Export delivery",
+          "text": "Export requests are queued and normally complete within four hours. The workspace owner receives a notification when the archive is ready. Exports that fail are retried automatically once."
+        }
+      ]
+    },
+    {
+      "id": "restore",
+      "title": "Backups and recovery",
+      "sections": [
+        {
+          "heading": "Snapshot retention",
+          "text": "Production databases are snapshotted every six hours. Daily snapshots are retained for thirty days in the same residency region. Workspace exports are independent of operational backups."
+        },
+        {
+          "heading": "Disaster recovery objectives",
+          "text": "The recovery point objective is six hours and the recovery time objective is eight hours. For a restore, the incident commander selects the most recent verified snapshot."
+        }
+      ]
+    },
+    {
+      "id": "retention",
+      "title": "Account data retention",
+      "sections": [
+        {
+          "heading": "Account closure",
+          "text": "Closing a workspace disables access immediately. The deletion queue purges active customer data after thirty days unless a preservation hold applies. A closure request can be withdrawn by its owner during that interval."
+        },
+        {
+          "heading": "Long-term storage",
+          "text": "Aggregated usage counters that contain no workspace identifiers may persist for twelve months. Encrypted recovery copies expire according to the backup retention policy."
+        }
+      ]
+    },
+    {
+      "id": "incidents",
+      "title": "Incident response handbook",
+      "sections": [
+        {
+          "heading": "Major outages",
+          "text": "A severity-one incident means a broad loss of core customer functionality. The incident commander opens a coordination channel and posts status updates every thirty minutes while the outage is active."
+        },
+        {
+          "heading": "Retrospectives",
+          "text": "The incident owner publishes a blameless retrospective within five business days of resolution. Include a timeline, contributing factors, and one accountable owner per mitigation."
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "title": "Support coverage",
+      "sections": [
+        {
+          "heading": "Priority support",
+          "text": "Professional plan support is staffed on weekdays from 09:00 to 18:00 UTC. Enterprise customers can contact support at any hour for critical service interruptions. Standard requests are prioritized by impact."
+        },
+        {
+          "heading": "First response",
+          "text": "An Enterprise ticket marked critical has a one-hour initial response target. The response target measures the first human acknowledgement and is independent of incident status update cadence."
+        }
+      ]
+    },
+    {
+      "id": "availability",
+      "title": "Availability commitments",
+      "sections": [
+        {
+          "heading": "Uptime target",
+          "text": "Enterprise subscriptions have a 99.9 percent monthly uptime target. Scheduled maintenance announced at least forty-eight hours in advance is excluded from the uptime calculation."
+        },
+        {
+          "heading": "Credit claims",
+          "text": "Customers must submit a service credit request within thirty calendar days of the affected month. The service desk verifies eligible downtime and sends approved claims to Finance."
+        }
+      ]
+    },
+    {
+      "id": "webhooks",
+      "title": "Webhook delivery",
+      "sections": [
+        {
+          "heading": "Retries",
+          "text": "The delivery service retries non-success responses with exponential backoff for up to twenty-four hours. After that window, the event is parked in the dead-letter queue and an alert is sent to the owner."
+        },
+        {
+          "heading": "Duplicate deliveries",
+          "text": "Webhook consumers should deduplicate requests using the event ID. A single event may be delivered more than once after a receiver responds too slowly."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": "Public API limits",
+      "sections": [
+        {
+          "heading": "Rate limits",
+          "text": "The public API allows six hundred requests per minute per workspace. Requests above the allowance receive HTTP 429 and a Retry-After header. Bulk operations are subject to the same workspace limit."
+        },
+        {
+          "heading": "Request keys",
+          "text": "Include an idempotency key when creating an invoice from the API. The service remembers accepted key and payload pairs for twelve hours, then permits the key to be used again."
+        }
+      ]
+    },
+    {
+      "id": "identity",
+      "title": "Identity and sign-in",
+      "sections": [
+        {
+          "heading": "Federated access",
+          "text": "Enterprise workspace administrators can enable SAML single sign-on. Once enforcement is active, new members authenticate through the company identity provider. The primary owner keeps an emergency local login."
+        },
+        {
+          "heading": "Session policy",
+          "text": "An interactive session expires after eight hours without activity. Administrators can revoke current sessions from the membership console. Session expiration is distinct from email invitation expiration."
+        }
+      ]
+    },
+    {
+      "id": "membership",
+      "title": "Workspace membership",
+      "sections": [
+        {
+          "heading": "Invitations and roles",
+          "text": "An emailed workspace invitation expires after forty-eight hours. Owners can resend invitations. Administrators manage members, editors modify tasks, and viewers have read-only project access."
+        },
+        {
+          "heading": "Ownership handover",
+          "text": "Ownership can be transferred only to an existing administrator. The current owner confirms the handover through a one-time verification code and becomes an administrator."
+        }
+      ]
+    },
+    {
+      "id": "residency",
+      "title": "Data residency choices",
+      "sections": [
+        {
+          "heading": "Supported regions",
+          "text": "New Enterprise workspaces are provisioned in Frankfurt or Virginia. Project data and attachments remain in the assigned region. Data residency is selected during setup."
+        },
+        {
+          "heading": "Workspace migrations",
+          "text": "A workspace cannot change region in place. The owner can arrange a migration to a new workspace through Enterprise support. The team agrees on a downtime window before transfer."
+        }
+      ]
+    },
+    {
+      "id": "sandbox",
+      "title": "Trial workspace guide",
+      "sections": [
+        {
+          "heading": "Trial duration",
+          "text": "A trial workspace lasts twenty-one days. No credit card is required to start the trial. The workspace becomes read-only when the trial ends."
+        },
+        {
+          "heading": "Trial extensions",
+          "text": "Sales can extend an active trial once for up to seven days. Extensions must be requested before the original expiry date."
+        }
+      ]
+    },
+    {
+      "id": "notifications",
+      "title": "Notifications and alerts",
+      "sections": [
+        {
+          "heading": "Summary emails",
+          "text": "The activity digest is sent every Monday at 08:00 in the recipient's configured time zone. Users can opt out of the digest in Notification Preferences."
+        },
+        {
+          "heading": "Delivery channels",
+          "text": "Workspace announcements can be delivered in-app or by email. An administrator can mute announcements for low-priority projects. Critical system notifications remain enabled."
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "title": "Search index operations",
+      "sections": [
+        {
+          "heading": "Index freshness",
+          "text": "New task content becomes searchable within five minutes under normal conditions. Index updates are asynchronous. Direct task links stay available while the search index catches up."
+        },
+        {
+          "heading": "Archived tasks",
+          "text": "Archived tasks are omitted from default search. Users can include archived tasks using the Archive filter. Deleted task records are removed from search automatically."
+        }
+      ]
+    },
+    {
+      "id": "launch",
+      "title": "Scheduled maintenance",
+      "sections": [
+        {
+          "heading": "Maintenance notice",
+          "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+        },
+        {
+          "heading": "Release windows",
+          "text": "Routine releases start on Tuesday or Thursday between 01:00 and 03:00 UTC. A release manager may postpone a deployment during an active incident."
+        }
+      ]
+    },
+    {
+      "id": "sharing",
+      "title": "Guest access",
+      "sections": [
+        {
+          "heading": "Guest restrictions",
+          "text": "Guests can view and comment on projects explicitly shared with them. Guests cannot manage billing or invite members. A guest can be promoted to a workspace viewer by an administrator."
+        },
+        {
+          "heading": "Public links",
+          "text": "A public project link exposes the selected project in read-only mode. Workspace administrators can disable existing public links from the sharing console."
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "d01",
+      "kind": "direct",
+      "question": "What is the grace period for a failed renewal payment?",
+      "relevant": [
+        "billing"
+      ]
+    },
+    {
+      "id": "d02",
+      "kind": "direct",
+      "question": "How long is an annual subscription refund window?",
+      "relevant": [
+        "refunds"
+      ]
+    },
+    {
+      "id": "d03",
+      "kind": "direct",
+      "question": "What file format is used for customer data exports?",
+      "relevant": [
+        "export"
+      ]
+    },
+    {
+      "id": "d04",
+      "kind": "direct",
+      "question": "How often are production databases snapshotted?",
+      "relevant": [
+        "restore"
+      ]
+    },
+    {
+      "id": "d05",
+      "kind": "direct",
+      "question": "How long is active customer data held after workspace closure?",
+      "relevant": [
+        "retention"
+      ]
+    },
+    {
+      "id": "d06",
+      "kind": "direct",
+      "question": "What is the status update cadence during a severity-one incident?",
+      "relevant": [
+        "incidents"
+      ]
+    },
+    {
+      "id": "d07",
+      "kind": "direct",
+      "question": "What is the initial human response target for a critical Enterprise ticket?",
+      "relevant": [
+        "support"
+      ]
+    },
+    {
+      "id": "d08",
+      "kind": "direct",
+      "question": "What is the monthly Enterprise uptime target?",
+      "relevant": [
+        "availability"
+      ]
+    },
+    {
+      "id": "d09",
+      "kind": "direct",
+      "question": "How long does the webhook retry window last?",
+      "relevant": [
+        "webhooks"
+      ]
+    },
+    {
+      "id": "d10",
+      "kind": "direct",
+      "question": "How many API requests per minute are permitted per workspace?",
+      "relevant": [
+        "limits"
+      ]
+    },
+    {
+      "id": "d11",
+      "kind": "direct",
+      "question": "Which regions are available for provisioning Enterprise workspaces?",
+      "relevant": [
+        "residency"
+      ]
+    },
+    {
+      "id": "d12",
+      "kind": "direct",
+      "question": "What is the maximum duration of a trial extension?",
+      "relevant": [
+        "sandbox"
+      ]
+    },
+    {
+      "id": "p01",
+      "kind": "paraphrase",
+      "question": "Can I give the keys to my workspace to a regular contributor?",
+      "relevant": [
+        "membership"
+      ]
+    },
+    {
+      "id": "p02",
+      "kind": "paraphrase",
+      "question": "Will I be kicked out if I leave the app idle all afternoon?",
+      "relevant": [
+        "identity"
+      ]
+    },
+    {
+      "id": "p03",
+      "kind": "paraphrase",
+      "question": "Can visitors outside our organization add feedback?",
+      "relevant": [
+        "sharing"
+      ]
+    },
+    {
+      "id": "p04",
+      "kind": "paraphrase",
+      "question": "When will a newly created item show up in results?",
+      "relevant": [
+        "search"
+      ]
+    },
+    {
+      "id": "p05",
+      "kind": "paraphrase",
+      "question": "Can a business headquartered in France keep its files in Germany?",
+      "relevant": [
+        "residency"
+      ]
+    },
+    {
+      "id": "p06",
+      "kind": "paraphrase",
+      "question": "The customer's endpoint is down. Where do undeliverable messages end up?",
+      "relevant": [
+        "webhooks"
+      ]
+    },
+    {
+      "id": "p07",
+      "kind": "paraphrase",
+      "question": "Can I get the charges back if I changed my mind about the yearly plan?",
+      "relevant": [
+        "refunds"
+      ]
+    },
+    {
+      "id": "p08",
+      "kind": "paraphrase",
+      "question": "What happens to collaboration if our card is declined?",
+      "relevant": [
+        "billing"
+      ]
+    },
+    {
+      "id": "p09",
+      "kind": "paraphrase",
+      "question": "Can I join with credentials from my employer instead of creating another password?",
+      "relevant": [
+        "identity"
+      ]
+    },
+    {
+      "id": "p10",
+      "kind": "paraphrase",
+      "question": "Is there a weekly recap and can I stop getting it?",
+      "relevant": [
+        "notifications"
+      ]
+    },
+    {
+      "id": "p11",
+      "kind": "paraphrase",
+      "question": "Can I recover a valid file bundle from an old emailed link?",
+      "relevant": [
+        "export"
+      ]
+    },
+    {
+      "id": "p12",
+      "kind": "paraphrase",
+      "question": "What do we write up after bringing the system back online?",
+      "relevant": [
+        "incidents"
+      ]
+    },
+    {
+      "id": "m01",
+      "kind": "multi-source",
+      "question": "For an ongoing outage, compare the critical ticket response target and the status update cadence.",
+      "relevant": [
+        "support",
+        "incidents"
+      ]
+    },
+    {
+      "id": "m02",
+      "kind": "multi-source",
+      "question": "How long do operational backups survive, and when is active data erased after closure?",
+      "relevant": [
+        "restore",
+        "retention"
+      ]
+    },
+    {
+      "id": "m03",
+      "kind": "multi-source",
+      "question": "How much notice is given before maintenance, and how does that affect Enterprise uptime calculations?",
+      "relevant": [
+        "launch",
+        "availability"
+      ]
+    },
+    {
+      "id": "m04",
+      "kind": "multi-source",
+      "question": "How should I deduplicate a webhook, and how long is an invoice idempotency key remembered?",
+      "relevant": [
+        "webhooks",
+        "limits"
+      ]
+    },
+    {
+      "id": "m05",
+      "kind": "multi-source",
+      "question": "When do workspace invitations expire compared with idle login sessions?",
+      "relevant": [
+        "membership",
+        "identity"
+      ]
+    },
+    {
+      "id": "m06",
+      "kind": "multi-source",
+      "question": "I am closing a workspace. How can I download a portable copy and when will active data be deleted?",
+      "relevant": [
+        "export",
+        "retention"
+      ]
+    },
+    {
+      "id": "u01",
+      "kind": "unsupported",
+      "question": "Which Indian rupee payment gateway handles workspace subscriptions?",
+      "relevant": []
+    },
+    {
+      "id": "u02",
+      "kind": "unsupported",
+      "question": "Can workspace members log in using SAML on the Professional plan?",
+      "relevant": []
+    },
+    {
+      "id": "u03",
+      "kind": "unsupported",
+      "question": "What is the exact cost of one extra gigabyte of attachment storage?",
+      "relevant": []
+    },
+    {
+      "id": "u04",
+      "kind": "unsupported",
+      "question": "Does a native Android client work offline when I am on a plane?",
+      "relevant": []
+    },
+    {
+      "id": "u05",
+      "kind": "unsupported",
+      "question": "Which Dublin data center stores billing history?",
+      "relevant": []
+    },
+    {
+      "id": "u06",
+      "kind": "unsupported",
+      "question": "Can I schedule a daily activity digest at 5 PM?",
+      "relevant": []
+    }
+  ]
+}

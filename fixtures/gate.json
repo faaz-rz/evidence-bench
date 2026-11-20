@@ -1,0 +1,6 @@
+{
+  "minimumCases": 30,
+  "minNdcg": 0.92,
+  "minRecall": 0.95,
+  "maxRegressions": 1
+}

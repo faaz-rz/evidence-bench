@@ -1,0 +1,946 @@
+{
+  "schema": 1,
+  "fingerprint": "7bf3b933b4179861ae12f7c91c5d656c3c92c3e17ba310bec02c6c48bc1a8ce1",
+  "chatModel": "qwen3.5:4b",
+  "chatModelDigest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+  "embedModel": "nomic-embed-text",
+  "embedModelDigest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+  "ranker": "hybrid",
+  "k": 4,
+  "runs": [
+    {
+      "question": "What is the grace period for a failed renewal payment?",
+      "answer": {
+        "mode": "ollama",
+        "model": "qwen3.5:4b",
+        "citations": [
+          {
+            "passage": {
+              "id": "billing:2.1",
+              "docId": "billing",
+              "title": "Billing and invoicing",
+              "heading": "Failed payments",
+              "text": "A failed renewal payment starts a seven-day grace period. The billing service retries on days two and five. At the end of the grace period, editors lose write access until the payment clears."
+            },
+            "start": 0,
+            "end": 57,
+            "quote": "A failed renewal payment starts a seven-day grace period."
+          }
+        ]
+      },
+      "trace": [
+        {
+          "stage": "Plan",
+          "detail": "qwen3.5:4b prepared 3 search queries.",
+          "queries": [
+            "What is the grace period for a failed renewal payment?",
+            "failed renewal payment grace period",
+            "renewal payment grace period"
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "What is the grace period for a failed renewal payment?"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "billing:2.1",
+                "docId": "billing",
+                "title": "Billing and invoicing",
+                "heading": "Failed payments",
+                "text": "A failed renewal payment starts a seven-day grace period. The billing service retries on days two and five. At the end of the grace period, editors lose write access until the payment clears."
+              },
+              "score": 0.03278688524590164,
+              "lexicalRank": 1,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "refunds:1.1",
+                "docId": "refunds",
+                "title": "Refunds and credits",
+                "heading": "Annual subscription cancellations",
+                "text": "An annual subscription may be refunded within fourteen calendar days of the initial purchase. Renewals are excluded from this refund window. Finance normally processes an approved refund within five business days."
+              },
+              "score": 0.03225806451612903,
+              "lexicalRank": 2,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "launch:1.1",
+                "docId": "launch",
+                "title": "Scheduled maintenance",
+                "heading": "Maintenance notice",
+                "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+              },
+              "score": 0.02976190476190476,
+              "lexicalRank": 3,
+              "denseRank": 12
+            },
+            {
+              "passage": {
+                "id": "incidents:2.1",
+                "docId": "incidents",
+                "title": "Incident response handbook",
+                "heading": "Retrospectives",
+                "text": "The incident owner publishes a blameless retrospective within five business days of resolution. Include a timeline, contributing factors, and one accountable owner per mitigation."
+              },
+              "score": 0.015873015873015872,
+              "denseRank": 3
+            }
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "failed renewal payment grace period"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "billing:2.1",
+                "docId": "billing",
+                "title": "Billing and invoicing",
+                "heading": "Failed payments",
+                "text": "A failed renewal payment starts a seven-day grace period. The billing service retries on days two and five. At the end of the grace period, editors lose write access until the payment clears."
+              },
+              "score": 0.03278688524590164,
+              "lexicalRank": 1,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "refunds:1.1",
+                "docId": "refunds",
+                "title": "Refunds and credits",
+                "heading": "Annual subscription cancellations",
+                "text": "An annual subscription may be refunded within fourteen calendar days of the initial purchase. Renewals are excluded from this refund window. Finance normally processes an approved refund within five business days."
+              },
+              "score": 0.03225806451612903,
+              "lexicalRank": 2,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "launch:1.1",
+                "docId": "launch",
+                "title": "Scheduled maintenance",
+                "heading": "Maintenance notice",
+                "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+              },
+              "score": 0.02976190476190476,
+              "lexicalRank": 3,
+              "denseRank": 12
+            },
+            {
+              "passage": {
+                "id": "availability:2.1",
+                "docId": "availability",
+                "title": "Availability commitments",
+                "heading": "Credit claims",
+                "text": "Customers must submit a service credit request within thirty calendar days of the affected month. The service desk verifies eligible downtime and sends approved claims to Finance."
+              },
+              "score": 0.015873015873015872,
+              "denseRank": 3
+            }
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "renewal payment grace period"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "billing:2.1",
+                "docId": "billing",
+                "title": "Billing and invoicing",
+                "heading": "Failed payments",
+                "text": "A failed renewal payment starts a seven-day grace period. The billing service retries on days two and five. At the end of the grace period, editors lose write access until the payment clears."
+              },
+              "score": 0.03278688524590164,
+              "lexicalRank": 1,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "refunds:1.1",
+                "docId": "refunds",
+                "title": "Refunds and credits",
+                "heading": "Annual subscription cancellations",
+                "text": "An annual subscription may be refunded within fourteen calendar days of the initial purchase. Renewals are excluded from this refund window. Finance normally processes an approved refund within five business days."
+              },
+              "score": 0.03225806451612903,
+              "lexicalRank": 2,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "launch:1.1",
+                "docId": "launch",
+                "title": "Scheduled maintenance",
+                "heading": "Maintenance notice",
+                "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+              },
+              "score": 0.029957522915269395,
+              "lexicalRank": 3,
+              "denseRank": 11
+            },
+            {
+              "passage": {
+                "id": "availability:2.1",
+                "docId": "availability",
+                "title": "Availability commitments",
+                "heading": "Credit claims",
+                "text": "Customers must submit a service credit request within thirty calendar days of the affected month. The service desk verifies eligible downtime and sends approved claims to Finance."
+              },
+              "score": 0.015873015873015872,
+              "denseRank": 3
+            }
+          ]
+        },
+        {
+          "stage": "Verify",
+          "detail": "Selected 1 matching excerpts from 12 candidates."
+        },
+        {
+          "stage": "Finish",
+          "detail": "Returned only excerpts with valid source IDs and exact text offsets."
+        }
+      ],
+      "hits": [
+        {
+          "passage": {
+            "id": "billing:2.1",
+            "docId": "billing",
+            "title": "Billing and invoicing",
+            "heading": "Failed payments",
+            "text": "A failed renewal payment starts a seven-day grace period. The billing service retries on days two and five. At the end of the grace period, editors lose write access until the payment clears."
+          },
+          "score": 0.03278688524590164,
+          "lexicalRank": 1,
+          "denseRank": 1
+        },
+        {
+          "passage": {
+            "id": "refunds:1.1",
+            "docId": "refunds",
+            "title": "Refunds and credits",
+            "heading": "Annual subscription cancellations",
+            "text": "An annual subscription may be refunded within fourteen calendar days of the initial purchase. Renewals are excluded from this refund window. Finance normally processes an approved refund within five business days."
+          },
+          "score": 0.03225806451612903,
+          "lexicalRank": 2,
+          "denseRank": 2
+        },
+        {
+          "passage": {
+            "id": "launch:1.1",
+            "docId": "launch",
+            "title": "Scheduled maintenance",
+            "heading": "Maintenance notice",
+            "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+          },
+          "score": 0.02976190476190476,
+          "lexicalRank": 3,
+          "denseRank": 12
+        },
+        {
+          "passage": {
+            "id": "incidents:2.1",
+            "docId": "incidents",
+            "title": "Incident response handbook",
+            "heading": "Retrospectives",
+            "text": "The incident owner publishes a blameless retrospective within five business days of resolution. Include a timeline, contributing factors, and one accountable owner per mitigation."
+          },
+          "score": 0.015873015873015872,
+          "denseRank": 3
+        },
+        {
+          "passage": {
+            "id": "availability:2.1",
+            "docId": "availability",
+            "title": "Availability commitments",
+            "heading": "Credit claims",
+            "text": "Customers must submit a service credit request within thirty calendar days of the affected month. The service desk verifies eligible downtime and sends approved claims to Finance."
+          },
+          "score": 0.015873015873015872,
+          "denseRank": 3
+        }
+      ]
+    },
+    {
+      "question": "For an ongoing outage, compare the critical ticket response target and the status update cadence.",
+      "answer": {
+        "mode": "ollama",
+        "model": "qwen3.5:4b",
+        "citations": [
+          {
+            "passage": {
+              "id": "support:2.1",
+              "docId": "support",
+              "title": "Support coverage",
+              "heading": "First response",
+              "text": "An Enterprise ticket marked critical has a one-hour initial response target. The response target measures the first human acknowledgement and is independent of incident status update cadence."
+            },
+            "start": 0,
+            "end": 76,
+            "quote": "An Enterprise ticket marked critical has a one-hour initial response target."
+          },
+          {
+            "passage": {
+              "id": "support:2.1",
+              "docId": "support",
+              "title": "Support coverage",
+              "heading": "First response",
+              "text": "An Enterprise ticket marked critical has a one-hour initial response target. The response target measures the first human acknowledgement and is independent of incident status update cadence."
+            },
+            "start": 77,
+            "end": 191,
+            "quote": "The response target measures the first human acknowledgement and is independent of incident status update cadence."
+          },
+          {
+            "passage": {
+              "id": "incidents:1.1",
+              "docId": "incidents",
+              "title": "Incident response handbook",
+              "heading": "Major outages",
+              "text": "A severity-one incident means a broad loss of core customer functionality. The incident commander opens a coordination channel and posts status updates every thirty minutes while the outage is active."
+            },
+            "start": 75,
+            "end": 200,
+            "quote": "The incident commander opens a coordination channel and posts status updates every thirty minutes while the outage is active."
+          }
+        ]
+      },
+      "trace": [
+        {
+          "stage": "Plan",
+          "detail": "qwen3.5:4b prepared 3 search queries.",
+          "queries": [
+            "For an ongoing outage, compare the critical ticket response target and the status update cadence.",
+            "critical ticket response target outage",
+            "status update cadence incident response"
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "For an ongoing outage, compare the critical ticket response target and the status update cadence."
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "support:2.1",
+                "docId": "support",
+                "title": "Support coverage",
+                "heading": "First response",
+                "text": "An Enterprise ticket marked critical has a one-hour initial response target. The response target measures the first human acknowledgement and is independent of incident status update cadence."
+              },
+              "score": 0.03278688524590164,
+              "lexicalRank": 1,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "incidents:1.1",
+                "docId": "incidents",
+                "title": "Incident response handbook",
+                "heading": "Major outages",
+                "text": "A severity-one incident means a broad loss of core customer functionality. The incident commander opens a coordination channel and posts status updates every thirty minutes while the outage is active."
+              },
+              "score": 0.03225806451612903,
+              "lexicalRank": 2,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "availability:1.1",
+                "docId": "availability",
+                "title": "Availability commitments",
+                "heading": "Uptime target",
+                "text": "Enterprise subscriptions have a 99.9 percent monthly uptime target. Scheduled maintenance announced at least forty-eight hours in advance is excluded from the uptime calculation."
+              },
+              "score": 0.031746031746031744,
+              "lexicalRank": 3,
+              "denseRank": 3
+            },
+            {
+              "passage": {
+                "id": "launch:1.1",
+                "docId": "launch",
+                "title": "Scheduled maintenance",
+                "heading": "Maintenance notice",
+                "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+              },
+              "score": 0.031009615384615385,
+              "lexicalRank": 5,
+              "denseRank": 4
+            }
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "critical ticket response target outage"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "support:2.1",
+                "docId": "support",
+                "title": "Support coverage",
+                "heading": "First response",
+                "text": "An Enterprise ticket marked critical has a one-hour initial response target. The response target measures the first human acknowledgement and is independent of incident status update cadence."
+              },
+              "score": 0.03278688524590164,
+              "lexicalRank": 1,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "incidents:1.1",
+                "docId": "incidents",
+                "title": "Incident response handbook",
+                "heading": "Major outages",
+                "text": "A severity-one incident means a broad loss of core customer functionality. The incident commander opens a coordination channel and posts status updates every thirty minutes while the outage is active."
+              },
+              "score": 0.03225806451612903,
+              "lexicalRank": 2,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "availability:1.1",
+                "docId": "availability",
+                "title": "Availability commitments",
+                "heading": "Uptime target",
+                "text": "Enterprise subscriptions have a 99.9 percent monthly uptime target. Scheduled maintenance announced at least forty-eight hours in advance is excluded from the uptime calculation."
+              },
+              "score": 0.031746031746031744,
+              "lexicalRank": 3,
+              "denseRank": 3
+            },
+            {
+              "passage": {
+                "id": "notifications:2.1",
+                "docId": "notifications",
+                "title": "Notifications and alerts",
+                "heading": "Delivery channels",
+                "text": "Workspace announcements can be delivered in-app or by email. An administrator can mute announcements for low-priority projects. Critical system notifications remain enabled."
+              },
+              "score": 0.029910714285714284,
+              "lexicalRank": 4,
+              "denseRank": 10
+            }
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "status update cadence incident response"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "incidents:1.1",
+                "docId": "incidents",
+                "title": "Incident response handbook",
+                "heading": "Major outages",
+                "text": "A severity-one incident means a broad loss of core customer functionality. The incident commander opens a coordination channel and posts status updates every thirty minutes while the outage is active."
+              },
+              "score": 0.03252247488101534,
+              "lexicalRank": 2,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "support:2.1",
+                "docId": "support",
+                "title": "Support coverage",
+                "heading": "First response",
+                "text": "An Enterprise ticket marked critical has a one-hour initial response target. The response target measures the first human acknowledgement and is independent of incident status update cadence."
+              },
+              "score": 0.03252247488101534,
+              "lexicalRank": 1,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "launch:1.1",
+                "docId": "launch",
+                "title": "Scheduled maintenance",
+                "heading": "Maintenance notice",
+                "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+              },
+              "score": 0.031746031746031744,
+              "lexicalRank": 3,
+              "denseRank": 3
+            },
+            {
+              "passage": {
+                "id": "restore:2.1",
+                "docId": "restore",
+                "title": "Backups and recovery",
+                "heading": "Disaster recovery objectives",
+                "text": "The recovery point objective is six hours and the recovery time objective is eight hours. For a restore, the incident commander selects the most recent verified snapshot."
+              },
+              "score": 0.03055037313432836,
+              "lexicalRank": 4,
+              "denseRank": 7
+            }
+          ]
+        },
+        {
+          "stage": "Verify",
+          "detail": "Selected 3 matching excerpts from 13 candidates."
+        },
+        {
+          "stage": "Finish",
+          "detail": "Returned only excerpts with valid source IDs and exact text offsets."
+        }
+      ],
+      "hits": [
+        {
+          "passage": {
+            "id": "support:2.1",
+            "docId": "support",
+            "title": "Support coverage",
+            "heading": "First response",
+            "text": "An Enterprise ticket marked critical has a one-hour initial response target. The response target measures the first human acknowledgement and is independent of incident status update cadence."
+          },
+          "score": 0.03278688524590164,
+          "lexicalRank": 1,
+          "denseRank": 1
+        },
+        {
+          "passage": {
+            "id": "incidents:1.1",
+            "docId": "incidents",
+            "title": "Incident response handbook",
+            "heading": "Major outages",
+            "text": "A severity-one incident means a broad loss of core customer functionality. The incident commander opens a coordination channel and posts status updates every thirty minutes while the outage is active."
+          },
+          "score": 0.03252247488101534,
+          "lexicalRank": 2,
+          "denseRank": 1
+        },
+        {
+          "passage": {
+            "id": "availability:1.1",
+            "docId": "availability",
+            "title": "Availability commitments",
+            "heading": "Uptime target",
+            "text": "Enterprise subscriptions have a 99.9 percent monthly uptime target. Scheduled maintenance announced at least forty-eight hours in advance is excluded from the uptime calculation."
+          },
+          "score": 0.031746031746031744,
+          "lexicalRank": 3,
+          "denseRank": 3
+        },
+        {
+          "passage": {
+            "id": "launch:1.1",
+            "docId": "launch",
+            "title": "Scheduled maintenance",
+            "heading": "Maintenance notice",
+            "text": "Maintenance notifications are sent by email and posted on the status page at least forty-eight hours in advance. The message gives the affected region and estimated maintenance period."
+          },
+          "score": 0.031746031746031744,
+          "lexicalRank": 3,
+          "denseRank": 3
+        },
+        {
+          "passage": {
+            "id": "notifications:2.1",
+            "docId": "notifications",
+            "title": "Notifications and alerts",
+            "heading": "Delivery channels",
+            "text": "Workspace announcements can be delivered in-app or by email. An administrator can mute announcements for low-priority projects. Critical system notifications remain enabled."
+          },
+          "score": 0.029910714285714284,
+          "lexicalRank": 4,
+          "denseRank": 10
+        },
+        {
+          "passage": {
+            "id": "restore:2.1",
+            "docId": "restore",
+            "title": "Backups and recovery",
+            "heading": "Disaster recovery objectives",
+            "text": "The recovery point objective is six hours and the recovery time objective is eight hours. For a restore, the incident commander selects the most recent verified snapshot."
+          },
+          "score": 0.03055037313432836,
+          "lexicalRank": 4,
+          "denseRank": 7
+        }
+      ]
+    },
+    {
+      "question": "What is the exact cost of one extra gigabyte of attachment storage?",
+      "answer": {
+        "mode": "ollama",
+        "model": "qwen3.5:4b",
+        "citations": []
+      },
+      "trace": [
+        {
+          "stage": "Plan",
+          "detail": "qwen3.5:4b prepared 3 search queries.",
+          "queries": [
+            "What is the exact cost of one extra gigabyte of attachment storage?",
+            "cost of extra gigabyte attachment storage",
+            "price per additional GB attachment space"
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "What is the exact cost of one extra gigabyte of attachment storage?"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "retention:2.1",
+                "docId": "retention",
+                "title": "Account data retention",
+                "heading": "Long-term storage",
+                "text": "Aggregated usage counters that contain no workspace identifiers may persist for twelve months. Encrypted recovery copies expire according to the backup retention policy."
+              },
+              "score": 0.03252247488101534,
+              "lexicalRank": 1,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "sandbox:1.1",
+                "docId": "sandbox",
+                "title": "Trial workspace guide",
+                "heading": "Trial duration",
+                "text": "A trial workspace lasts twenty-one days. No credit card is required to start the trial. The workspace becomes read-only when the trial ends."
+              },
+              "score": 0.030330882352941176,
+              "lexicalRank": 4,
+              "denseRank": 8
+            },
+            {
+              "passage": {
+                "id": "membership:2.1",
+                "docId": "membership",
+                "title": "Workspace membership",
+                "heading": "Ownership handover",
+                "text": "Ownership can be transferred only to an existing administrator. The current owner confirms the handover through a one-time verification code and becomes an administrator."
+              },
+              "score": 0.030017921146953404,
+              "lexicalRank": 2,
+              "denseRank": 12
+            },
+            {
+              "passage": {
+                "id": "incidents:2.1",
+                "docId": "incidents",
+                "title": "Incident response handbook",
+                "heading": "Retrospectives",
+                "text": "The incident owner publishes a blameless retrospective within five business days of resolution. Include a timeline, contributing factors, and one accountable owner per mitigation."
+              },
+              "score": 0.029957522915269395,
+              "lexicalRank": 3,
+              "denseRank": 11
+            }
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "cost of extra gigabyte attachment storage"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "retention:2.1",
+                "docId": "retention",
+                "title": "Account data retention",
+                "heading": "Long-term storage",
+                "text": "Aggregated usage counters that contain no workspace identifiers may persist for twelve months. Encrypted recovery copies expire according to the backup retention policy."
+              },
+              "score": 0.03252247488101534,
+              "lexicalRank": 1,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "export:1.1",
+                "docId": "export",
+                "title": "Customer data export",
+                "heading": "Portable workspace archive",
+                "text": "Workspace owners can request a data export from Data Controls. The archive contains task history and attachments in a ZIP file. A signed download link expires twenty-four hours after it is issued."
+              },
+              "score": 0.01639344262295082,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "restore:1.1",
+                "docId": "restore",
+                "title": "Backups and recovery",
+                "heading": "Snapshot retention",
+                "text": "Production databases are snapshotted every six hours. Daily snapshots are retained for thirty days in the same residency region. Workspace exports are independent of operational backups."
+              },
+              "score": 0.015873015873015872,
+              "denseRank": 3
+            },
+            {
+              "passage": {
+                "id": "availability:1.1",
+                "docId": "availability",
+                "title": "Availability commitments",
+                "heading": "Uptime target",
+                "text": "Enterprise subscriptions have a 99.9 percent monthly uptime target. Scheduled maintenance announced at least forty-eight hours in advance is excluded from the uptime calculation."
+              },
+              "score": 0.015625,
+              "denseRank": 4
+            }
+          ]
+        },
+        {
+          "stage": "Retrieve",
+          "detail": "4 documents from hybrid search.",
+          "queries": [
+            "price per additional GB attachment space"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "limits:1.1",
+                "docId": "limits",
+                "title": "Public API limits",
+                "heading": "Rate limits",
+                "text": "The public API allows six hundred requests per minute per workspace. Requests above the allowance receive HTTP 429 and a Retry-After header. Bulk operations are subject to the same workspace limit."
+              },
+              "score": 0.032266458495966696,
+              "lexicalRank": 1,
+              "denseRank": 3
+            },
+            {
+              "passage": {
+                "id": "incidents:2.1",
+                "docId": "incidents",
+                "title": "Incident response handbook",
+                "heading": "Retrospectives",
+                "text": "The incident owner publishes a blameless retrospective within five business days of resolution. Include a timeline, contributing factors, and one accountable owner per mitigation."
+              },
+              "score": 0.03021353930031804,
+              "lexicalRank": 2,
+              "denseRank": 11
+            },
+            {
+              "passage": {
+                "id": "export:1.1",
+                "docId": "export",
+                "title": "Customer data export",
+                "heading": "Portable workspace archive",
+                "text": "Workspace owners can request a data export from Data Controls. The archive contains task history and attachments in a ZIP file. A signed download link expires twenty-four hours after it is issued."
+              },
+              "score": 0.01639344262295082,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "retention:2.1",
+                "docId": "retention",
+                "title": "Account data retention",
+                "heading": "Long-term storage",
+                "text": "Aggregated usage counters that contain no workspace identifiers may persist for twelve months. Encrypted recovery copies expire according to the backup retention policy."
+              },
+              "score": 0.016129032258064516,
+              "denseRank": 2
+            }
+          ]
+        },
+        {
+          "stage": "Verify",
+          "detail": "The verifier found insufficient support."
+        },
+        {
+          "stage": "Retry",
+          "detail": "Searched one fallback phrase. Found 1 new passages.",
+          "queries": [
+            "attachment storage pricing"
+          ],
+          "hits": [
+            {
+              "passage": {
+                "id": "retention:2.1",
+                "docId": "retention",
+                "title": "Account data retention",
+                "heading": "Long-term storage",
+                "text": "Aggregated usage counters that contain no workspace identifiers may persist for twelve months. Encrypted recovery copies expire according to the backup retention policy."
+              },
+              "score": 0.03252247488101534,
+              "lexicalRank": 1,
+              "denseRank": 2
+            },
+            {
+              "passage": {
+                "id": "export:1.1",
+                "docId": "export",
+                "title": "Customer data export",
+                "heading": "Portable workspace archive",
+                "text": "Workspace owners can request a data export from Data Controls. The archive contains task history and attachments in a ZIP file. A signed download link expires twenty-four hours after it is issued."
+              },
+              "score": 0.01639344262295082,
+              "denseRank": 1
+            },
+            {
+              "passage": {
+                "id": "restore:1.1",
+                "docId": "restore",
+                "title": "Backups and recovery",
+                "heading": "Snapshot retention",
+                "text": "Production databases are snapshotted every six hours. Daily snapshots are retained for thirty days in the same residency region. Workspace exports are independent of operational backups."
+              },
+              "score": 0.015873015873015872,
+              "denseRank": 3
+            },
+            {
+              "passage": {
+                "id": "availability:2.1",
+                "docId": "availability",
+                "title": "Availability commitments",
+                "heading": "Credit claims",
+                "text": "Customers must submit a service credit request within thirty calendar days of the affected month. The service desk verifies eligible downtime and sends approved claims to Finance."
+              },
+              "score": 0.015625,
+              "denseRank": 4
+            }
+          ]
+        },
+        {
+          "stage": "Verify",
+          "detail": "Evidence remained insufficient after the fallback search."
+        },
+        {
+          "stage": "Finish",
+          "detail": "Abstained without emitting an unsupported answer."
+        }
+      ],
+      "hits": [
+        {
+          "passage": {
+            "id": "retention:2.1",
+            "docId": "retention",
+            "title": "Account data retention",
+            "heading": "Long-term storage",
+            "text": "Aggregated usage counters that contain no workspace identifiers may persist for twelve months. Encrypted recovery copies expire according to the backup retention policy."
+          },
+          "score": 0.03252247488101534,
+          "lexicalRank": 1,
+          "denseRank": 2
+        },
+        {
+          "passage": {
+            "id": "limits:1.1",
+            "docId": "limits",
+            "title": "Public API limits",
+            "heading": "Rate limits",
+            "text": "The public API allows six hundred requests per minute per workspace. Requests above the allowance receive HTTP 429 and a Retry-After header. Bulk operations are subject to the same workspace limit."
+          },
+          "score": 0.032266458495966696,
+          "lexicalRank": 1,
+          "denseRank": 3
+        },
+        {
+          "passage": {
+            "id": "export:1.1",
+            "docId": "export",
+            "title": "Customer data export",
+            "heading": "Portable workspace archive",
+            "text": "Workspace owners can request a data export from Data Controls. The archive contains task history and attachments in a ZIP file. A signed download link expires twenty-four hours after it is issued."
+          },
+          "score": 0.01639344262295082,
+          "denseRank": 1
+        },
+        {
+          "passage": {
+            "id": "sandbox:1.1",
+            "docId": "sandbox",
+            "title": "Trial workspace guide",
+            "heading": "Trial duration",
+            "text": "A trial workspace lasts twenty-one days. No credit card is required to start the trial. The workspace becomes read-only when the trial ends."
+          },
+          "score": 0.030330882352941176,
+          "lexicalRank": 4,
+          "denseRank": 8
+        },
+        {
+          "passage": {
+            "id": "incidents:2.1",
+            "docId": "incidents",
+            "title": "Incident response handbook",
+            "heading": "Retrospectives",
+            "text": "The incident owner publishes a blameless retrospective within five business days of resolution. Include a timeline, contributing factors, and one accountable owner per mitigation."
+          },
+          "score": 0.03021353930031804,
+          "lexicalRank": 2,
+          "denseRank": 11
+        },
+        {
+          "passage": {
+            "id": "restore:1.1",
+            "docId": "restore",
+            "title": "Backups and recovery",
+            "heading": "Snapshot retention",
+            "text": "Production databases are snapshotted every six hours. Daily snapshots are retained for thirty days in the same residency region. Workspace exports are independent of operational backups."
+          },
+          "score": 0.015873015873015872,
+          "denseRank": 3
+        },
+        {
+          "passage": {
+            "id": "membership:2.1",
+            "docId": "membership",
+            "title": "Workspace membership",
+            "heading": "Ownership handover",
+            "text": "Ownership can be transferred only to an existing administrator. The current owner confirms the handover through a one-time verification code and becomes an administrator."
+          },
+          "score": 0.030017921146953404,
+          "lexicalRank": 2,
+          "denseRank": 12
+        },
+        {
+          "passage": {
+            "id": "availability:2.1",
+            "docId": "availability",
+            "title": "Availability commitments",
+            "heading": "Credit claims",
+            "text": "Customers must submit a service credit request within thirty calendar days of the affected month. The service desk verifies eligible downtime and sends approved claims to Finance."
+          },
+          "score": 0.015625,
+          "denseRank": 4
+        },
+        {
+          "passage": {
+            "id": "availability:1.1",
+            "docId": "availability",
+            "title": "Availability commitments",
+            "heading": "Uptime target",
+            "text": "Enterprise subscriptions have a 99.9 percent monthly uptime target. Scheduled maintenance announced at least forty-eight hours in advance is excluded from the uptime calculation."
+          },
+          "score": 0.015625,
+          "denseRank": 4
+        }
+      ]
+    }
+  ]
+}

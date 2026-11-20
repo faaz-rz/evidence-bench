@@ -1,0 +1,35 @@
+{
+  "name": "evidence-bench",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "start": "node server/index.ts",
+    "test": "node --test tests/core.test.ts",
+    "test:browser": "playwright test",
+    "benchmark": "node scripts/benchmark.ts",
+    "vectors": "node scripts/build-vectors.ts",
+    "build:demo": "tsc --noEmit && vite build --mode demo",
+    "test:agent": "node scripts/agent-smoke.ts"
+  },
+  "dependencies": {
+    "lucide-react": "^0.577.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.8",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}
