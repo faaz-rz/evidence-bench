@@ -5,8 +5,10 @@ export default defineConfig({
   testMatch: "*.spec.ts",
   use: { baseURL: "http://127.0.0.1:4330", browserName: "chromium" },
   webServer: {
-    command: "npm run build:demo && npx vite preview --strictPort --port 4330",
+    command: "npm run build:demo && npx vite preview --host 127.0.0.1 --strictPort --port 4330",
     url: "http://127.0.0.1:4330",
     timeout: 60_000,
+    stdout: "pipe",
+    stderr: "pipe",
   },
 });
